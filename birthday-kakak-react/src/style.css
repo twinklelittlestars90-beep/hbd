@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Patrick+Hand&display=swap');
+
+:root {
+  font-family: 'Patrick Hand', cursive;
+  color: #684b43;
+  background: #760900;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --pink: #FFB1B1;
+  --peach: #FFCCB8;
+  --apricot: #FFDBB0;
+  --cream: #FFFAD3;
+  --ribbon-red: #760900;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--ribbon-red);
+  background-image: url('/birthday-kakak-react/public/images/ribbon-background.jpg');
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: 736px 1308px;
+}
+.page-shell {
+  min-height:100vh;
+  overflow:hidden;
+  padding:0 24px 34px;
+  background:transparent;
+}
+.hero {
+  min-height:500px; max-width:1160px; margin:0 auto; padding:85px 16px 75px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position:relative;
+}
+.eyebrow { display:flex; align-items:center; gap:10px; color:brown; text-transform:uppercase; letter-spacing:.16em; font:700 11px 'Patrick Hand',cursive; }
+h1 { font-family:'Patrick Hand',cursive; font-size:clamp(48px,6vw,68px); line-height:.98; letter-spacing:-.055em; font-weight:600; color:brown; margin:28px 0 22px; }
+h1 em { color:brown; font-weight:600; }
+.hero-subtitle { font:16px/1.7 'Patrick Hand',cursive; color:brown; margin:0; }
+.hero-heart { margin-top:28px; color:brown; }
+.scroll-cue { position:absolute; bottom:34px; display:flex; align-items:center; gap:10px; color:brown; font:10px 'DM Sans',sans-serif; letter-spacing:.16em; text-transform:uppercase; }
+.scroll-cue span { width:28px; height:1px; background:brown; }
+.letters { max-width:1160px; margin:0 auto; padding:8px 0 40px; }
+
+/* One long message card, with a small Polaroid overlapping its left/right edge. */
+.letter-row {
+  position:relative; width:min(100%, 1160px); min-height:250px; margin:0 auto 86px;
+  display:flex; align-items:center;
+}
+.letter-card {
+  position:relative; width:100%; min-height:250px; padding:30px 42px 24px 245px;
+  border:1px solid rgba(160,111,91,.17); border-radius:15px; background:#fffdf9;
+  box-shadow:0 8px 24px rgba(117,79,61,.08);
+}
+.letter-row.right .letter-card { padding:30px 245px 30px 42px; }
+.letter-card::before { content:''; position:absolute; inset:8px; border:1px solid rgba(218,161,143,.22); border-radius:10px; pointer-events:none; }
+.card-topline,.card-footer { display:flex; align-items:center; justify-content:space-between; position:relative; z-index:1; }
+.card-number { font:700 10px 'DM Sans',sans-serif; letter-spacing:.16em; color:#bd8175; }
+.card-tag { font-size:21px; color:#c58b7d; }
+.letter-card p { position:relative; z-index:1; font-family:'Patrick Hand',cursive; font-size:19px; line-height:1.8; color:#684b43; margin:0; }
+.card-footer { border-top:1px solid rgba(211,157,138,.25); padding-top:11px; color:#d79a91; }
+.card-footer span { font-size:18px; }
+.photo-wrap {
+  position:absolute; z-index:3; left:0; top:50%; width:220px; height:245px;
+  transform:translate(-12%, -50%); display:flex; align-items:center; justify-content:center;
+}
+.letter-row.right .photo-wrap { left:auto; right:0; transform:translate(12%, -50%); }
+.polaroid {
+  width:190px; margin:0; padding:10px 10px 36px; background:#fffdf7;
+  box-shadow:0 13px 27px rgba(78,54,43,.22); position:relative; z-index:2;
+  transform:rotate(-6deg); transition:transform .35s ease, box-shadow .35s ease;
+}
+.letter-row.right .polaroid { transform:rotate(6deg); }
+.photo-wrap:hover .polaroid { transform:rotate(0deg) translateY(-4px); box-shadow:0 20px 36px rgba(78,54,43,.24); }
+.polaroid img { width:100%; height:158px; object-fit:cover; display:block; filter:saturate(.82) sepia(.08); }
+.polaroid figcaption { position:absolute; bottom:7px; left:8px; right:8px; text-align:center; font-size:18px; color:#927368; }
+.photo-back { position:absolute; width:185px; height:215px; background:var(--peach); box-shadow:0 8px 20px rgba(78,54,43,.1); }
+.back-one { transform:rotate(6deg) translate(6px,4px); background:var(--apricot); }
+.back-two { transform:rotate(-10deg) translate(-6px,2px); background:var(--pink); }
+.letter-row.right .back-one { transform:rotate(-6deg) translate(6px,4px); }
+.letter-row.right .back-two { transform:rotate(10deg) translate(-6px,2px); }
+.photo-sparkle { position:absolute; right:3%; top:4%; color:#d99a83; z-index:4; }
+.letter-row.right .photo-sparkle { right:auto; left:3%; }
+.closing { display:flex; flex-direction:column; align-items:center; text-align:center; color:#c58b7d; padding:30px 15px 60px; }
+.closing-line { width:70px; height:1px; background:#d9a897; margin-bottom:26px; }
+.closing p { font:10px 'DM Sans',sans-serif; text-transform:uppercase; letter-spacing:.18em; margin:14px 0 8px; }
+.closing h2 { font-family:'Patrick Hand',cursive; font-size:clamp(25px,4vw,38px); font-weight:600; color:#79564b; margin:0; }
+.closing-heart { font-size:40px; color:#df9d96; margin-top:8px; }
+.tiny-footer { text-align:center; color:#b99a8b; font:9px 'DM Sans',sans-serif; letter-spacing:.13em; text-transform:uppercase; padding-bottom:12px; }
+
+@media (max-width:700px) {
+  .page-shell { padding:0 16px 25px; }
+  .hero { min-height:460px; padding-top:65px; }
+  .hero-subtitle { max-width:270px; }
+  .letter-row { min-height:unset; margin-bottom:76px; padding-top:76px; }
+  .letter-card, .letter-row.right .letter-card { min-height:unset; padding:82px 22px 24px; }
+  .letter-card p { font-size:17px; line-height:1.8; margin:0; }
+  .photo-wrap, .letter-row.right .photo-wrap {
+    left:50%; right:auto; top:0; width:170px; height:170px; transform:translate(-50%,-12%);
+  }
+  .polaroid { width:135px; padding:7px 7px 27px; }
+  .polaroid img { height:105px; }
+  .polaroid figcaption { font-size:15px; bottom:4px; }
+  .photo-back { width:132px; height:150px; }
+  .photo-sparkle { right:5% !important; top:2%; }
+}
+
+/* HEADER - WHITE */
+.hero,
+.hero .eyebrow,
+.hero h1,
+.hero h1 em,
+.hero .hero-subtitle,
+.hero .scroll-cue,
+.hero .hero-heart {
+  color: #000000 !important;
+}
+
+/* FOOTER - WHITE */
+.closing,
+.closing p,
+.closing h2,
+.closing .closing-heart,
+.closing svg,
+.tiny-footer {
+  color: #000000 !important;
+}
+
+/* CARD TEXT - BLACK */
+.letter-card,
+.letter-card p {
+  color: #000000 !important;
+}
+
+/* POLAROID CAPTION - BLACK */
+.polaroid figcaption {
+  color: #000000 !important;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: #fff0f3 !important;
+  background-image: url('/birthday-kakak-react/public/images/ribbon-background.jpg') !important;
+  background-repeat: repeat !important;
+  background-position: center top;
+  background-size: 736px 1472px !important;
+  background-attachment: scroll;
+}
+.page-shell {
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 0 24px 34px;
+  background: transparent;
+}
+:root{
+  background: transparent;
+}
